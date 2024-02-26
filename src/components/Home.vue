@@ -1,47 +1,25 @@
 <template>
     <div>
-        <h1>Home component</h1>
-
-        <ul>
-            <li v-for="user in users" :key="user.name">
-                <User :user="user" :getData="getData" />
-            </li>
-        </ul>
+        <h1>Html Binding</h1>
+        <h3>{{ text }}</h3>
+        <span v-html="tag"></span>
 
     </div>
 </template>
 
 <script>
-import User from './User.vue';
 
 export default {
     name: 'Home',
     data() {
         return {
-            users: [
-                {
-                    name: 'Divyesh', email: 'd@gmail.com'
-                },
-                {
-                    name: 'Neel', email: 'n@gmail.com'
-                },
-                {
-                    name: 'Yash', email: 'y@gmail.com'
-                },
-                {
-                    name: 'Ravi', email: 'r@gmail.com'
-                },
-            ]
+            text: 'Divyesh',
+            tag: ' <h3>Divyesh Mepal</h3>'
         }
     },
     methods: {
-        getData(name) {
-            alert(name);
-        }
+
     },
-    components: {
-        User
-    }
 }
 </script>
 
