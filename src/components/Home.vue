@@ -1,12 +1,13 @@
 <template>
     <div>
-        <h1>{{ childUser }}</h1>
-        <User :getName="getUserName" />
+        <h1>Ref</h1>
+        <input type="text" ref="text">
+
+        <button @click="getText"> click me </button>
     </div>
 </template>
 
 <script>
-import User from './User.vue';
 
 export default {
     name: 'Home',
@@ -16,11 +17,13 @@ export default {
         }
     },
     components: {
-        User,
+
     },
     methods: {
-        getUserName(name) {
-            this.childUser = name
+        getText() {
+            this.$refs.text.focus()
+            let value = this.$refs.text.value
+            console.log(value);
         }
     },
 }
