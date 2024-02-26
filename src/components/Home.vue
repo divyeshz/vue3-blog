@@ -1,33 +1,28 @@
 <template>
     <div>
-        <h1>Props</h1>
-        <Student :name="name" />
-        <Teacher name="Divyesh" />
+        <h1>{{ childUser }}</h1>
+        <User :getName="getUserName" />
     </div>
 </template>
 
 <script>
-import Student from './Student.vue';
-import Teacher from './Teacher.vue';
+import User from './User.vue';
 
 export default {
     name: 'Home',
     data() {
         return {
-            name: "Neel"
-        }
-    },
-    computed: {
-        applyStyle() {
-            return {
-                green: this.colorFull, err: true, other: false
-            }
+            childUser: "Neel"
         }
     },
     components: {
-        Student,
-        Teacher
-    }
+        User,
+    },
+    methods: {
+        getUserName(name) {
+            this.childUser = name
+        }
+    },
 }
 </script>
 

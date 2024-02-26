@@ -1,9 +1,10 @@
 <template>
     <div>
-        <h3>
-            Name Is {{ user.name }} And Email Is {{ user.email }}
-        </h3>
-        <button @click.prevent="getData(user.name)"> Get Name</button>
+        <h2>
+            User Component
+        </h2>
+
+        <button @click="getName(userName)">Send User Name </button>
     </div>
 </template>
 
@@ -12,12 +13,11 @@ export default {
     name: 'User',
     data() {
         return {
-
+            userName: 'Divyesh'
         }
     },
     props: {
-        user: Object,
-        getData: Function,
+        getName: Function
     }
 }
 </script>
