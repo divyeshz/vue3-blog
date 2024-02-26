@@ -1,9 +1,8 @@
 <template>
     <div>
-        <h1>Html Binding</h1>
-        <h3>{{ text }}</h3>
-        <span v-html="tag"></span>
-
+        <h1>Class Binding</h1>
+        <h3 class="otherClass" :class="applyStyle">Green Class text</h3>
+        <button @click="colorFull = !colorFull">Apply Style</button>
     </div>
 </template>
 
@@ -13,14 +12,35 @@ export default {
     name: 'Home',
     data() {
         return {
-            text: 'Divyesh',
-            tag: ' <h3>Divyesh Mepal</h3>'
+            colorFull: false
         }
     },
-    methods: {
-
+    computed: {
+        applyStyle() {
+            return {
+                green: this.colorFull, err: true, other: false
+            }
+        }
     },
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+    color: orange;
+}
+
+.green {
+    background-color: green;
+    width: 500px;
+    padding: 10px;
+}
+
+.err {
+    color: red;
+}
+
+.other {
+    font-size: 50px;
+}
+</style>
