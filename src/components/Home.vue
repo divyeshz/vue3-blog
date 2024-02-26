@@ -1,18 +1,20 @@
 <template>
     <div>
-        <h1>Class Binding</h1>
-        <h3 class="otherClass" :class="applyStyle">Green Class text</h3>
-        <button @click="colorFull = !colorFull">Apply Style</button>
+        <h1>Props</h1>
+        <Student :name="name" />
+        <Teacher name="Divyesh" />
     </div>
 </template>
 
 <script>
+import Student from './Student.vue';
+import Teacher from './Teacher.vue';
 
 export default {
     name: 'Home',
     data() {
         return {
-            colorFull: false
+            name: "Neel"
         }
     },
     computed: {
@@ -22,6 +24,10 @@ export default {
             }
         }
     },
+    components: {
+        Student,
+        Teacher
+    }
 }
 </script>
 
