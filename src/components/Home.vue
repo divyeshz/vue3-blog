@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h1>Computed Property</h1>
-
-        <h2>Inline Result :- {{ (dollars * rupeeValue) - discount }}</h2>
-        <h2>Method Result :- {{ getMethodResult() }}</h2>
-        <h2>Computed Result :- {{ getComputedResult }}</h2>
+        <h1>Watchers</h1>
+        {{ count }}
+        <br>
+        <button @click="count++">+</button>
+        <button @click="count--">-</button>
     </div>
 </template>
 
@@ -14,9 +14,15 @@ export default {
     name: 'Home',
     data() {
         return {
-            dollars: 100,
-            rupeeValue: 90,
-            discount: 10,
+            count: 0
+        }
+    },
+    watch: {
+        count(newValue, oldValue) {
+            if (newValue > 5 && newValue > oldValue) {
+                alert('Value is grater than 5');
+            }
+            // alert('Value Change');
         }
     },
     methods: {
