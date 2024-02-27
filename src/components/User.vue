@@ -3,8 +3,11 @@
         <h2>
             User Component
         </h2>
-
-        <button @click="getName(userName)">Send User Name </button>
+        <ul>
+            <li>Divyesh</li>
+            <li>Neel</li>
+            <li>Dhruv</li>
+        </ul>
     </div>
 </template>
 
@@ -17,7 +20,7 @@ export default {
         }
     },
     props: {
-        getName: Function
+        data: String
     }
 }
 </script>
