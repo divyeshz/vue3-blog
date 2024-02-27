@@ -1,33 +1,36 @@
 <template>
     <div>
-        <h1>Non-Props Data</h1>
-        <User data="Some Data" id="user-cmp" />
+        <h1>Computed Property</h1>
+
+        <h2>Inline Result :- {{ (dollars * rupeeValue) - discount }}</h2>
+        <h2>Method Result :- {{ getMethodResult() }}</h2>
+        <h2>Computed Result :- {{ getComputedResult }}</h2>
     </div>
 </template>
 
 <script>
-import User from './User.vue';
 
 export default {
     name: 'Home',
     data() {
         return {
-            formData: {
-                email: '',
-                password: '',
-                country: '',
-                technology: [],
-                gender: '',
-            },
-            errors: [],
+            dollars: 100,
+            rupeeValue: 90,
+            discount: 10,
         }
     },
-    components: {
-        User
-    },
     methods: {
-
+        getMethodResult() {
+            console.log('getMethodResult');
+            return (this.dollars * this.rupeeValue) - this.discount
+        }
     },
+    computed: {
+        getComputedResult() {
+            console.log('getComputedResult');
+            return (this.dollars * this.rupeeValue) - this.discount
+        }
+    }
 }
 </script>
 
