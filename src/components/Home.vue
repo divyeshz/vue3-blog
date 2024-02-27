@@ -1,21 +1,31 @@
 <template>
     <div>
-        <h1>Watchers</h1>
-        {{ count }}
-        <br>
-        <button @click="count++">+</button>
-        <button @click="count--">-</button>
+        <h1>Dynamic components</h1>
+
+        <button @click="tab = 'Java'">Load Java</button>
+        <button @click="tab = 'Node'">Load Node</button>
+        <button @click="tab = 'Php'">Load Php</button>
+
+        <component :is="tab" />
     </div>
 </template>
 
 <script>
+import Php from './Php.vue';
+import Node from './Node.vue';
+import Java from './Java.vue';
 
 export default {
     name: 'Home',
     data() {
         return {
-            count: 0
+            tab: 'Java'
         }
+    },
+    components: {
+        Php,
+        Node,
+        Java
     },
     watch: {
         count(newValue, oldValue) {
